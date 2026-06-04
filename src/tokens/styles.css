@@ -33,7 +33,7 @@
 .typo-heading-4 {
   font-family:    var(--typo-font);
   font-size:      var(--typo-size-heading-4);
-  font-weight:    var(--typo-weight-medium);
+  font-weight:    var(--typo-weight-regular);
   line-height:    var(--typo-leading-heading-4);
   letter-spacing: var(--typo-tracking-heading-4);
 }
