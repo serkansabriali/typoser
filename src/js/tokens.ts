@@ -93,7 +93,7 @@ export const typoStyles = {
   heading1:  style('heading1', 'medium'),
   heading2:  style('heading2', 'regular'),
   heading3:  style('heading3', 'regular'),
-  heading4:  style('heading4', 'medium'),
+  heading4:  style('heading4', 'regular'),
   bodyLg:    style('bodyLg',   'regular'),
   body:      style('body',     'regular'),
   bodySm:    style('bodySm',   'regular'),

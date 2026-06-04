@@ -35,9 +35,9 @@ Sub-section heading within an H2 area. Groups related content or features. Commo
 ---
 
 ## Heading 4
-**22px · Medium (500) · 0em tracking · 1.273 leading**
+**22px · Regular (400) · 0em tracking · 1.273 leading**
 
-The smallest heading. Used for card titles, sidebar section labels, modal headings, and compact UI areas where a heading is needed but space is limited. The step up to Medium weight helps it hold its own against nearby body text.
+The smallest heading. Used for card titles, sidebar section labels, modal headings, and compact UI areas where a heading is needed but space is limited. Hierarchy is carried by size and leading relative to body text.
 
 ---
 
