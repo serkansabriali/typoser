@@ -35,5 +35,10 @@
     "font"
   ],
   "author": "Serkan Ali <hello@serkanali.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/serkansabriali/typoser.git"
+  },
+  "homepage": "https://github.com/serkansabriali/typoser"
 }
