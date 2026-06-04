@@ -1,6 +1,6 @@
 {
   "name": "typoser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Framework-agnostic typographic style library — 10 named text styles set in Open Sauce One",
   "type": "module",
   "exports": {
@@ -19,7 +19,9 @@
     "src/js/",
     "OFL.txt"
   ],
-  "sideEffects": ["*.css"],
+  "sideEffects": [
+    "*.css"
+  ],
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build"

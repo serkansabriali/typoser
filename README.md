@@ -64,7 +64,7 @@ All values are exposed as `--typo-*` custom properties on `:root`. You can refer
 | `.typo-heading-1` | `heading1` | 48px | Medium 500 | 1.083 | −0.03em |
 | `.typo-heading-2` | `heading2` | 36px | Regular 400 | 1.222 | −0.01em |
 | `.typo-heading-3` | `heading3` | 28px | Regular 400 | 1.25 | 0em |
-| `.typo-heading-4` | `heading4` | 22px | Medium 500 | 1.273 | 0em |
+| `.typo-heading-4` | `heading4` | 22px | Regular 400 | 1.273 | 0em |
 | `.typo-body-lg` | `bodyLg` | 18px | Regular 400 | 1.667 | 0em |
 | `.typo-body` | `body` | 16px | Regular 400 | 1.5 | +0.01em |
 | `.typo-body-sm` | `bodySm` | 14px | Regular 400 | 1.5 | +0.01em |
@@ -73,7 +73,7 @@ All values are exposed as `--typo-*` custom properties on `:root`. You can refer
 
 Two design decisions that are intentional — not mistakes:
 
-- **Weight progression is non-monotonic.** Hierarchy is carried mainly by size and line height. H2/H3 sit at Regular weight on purpose.
+- **Weight progression is non-monotonic.** Hierarchy is carried mainly by size and line height. H2, H3, and H4 sit at Regular weight on purpose.
 - **Label is sentence case, not uppercase.** Semibold 600 provides the emphasis. `text-transform: uppercase` is never applied.
 
 ## License
