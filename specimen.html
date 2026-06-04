@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typoser — Type Specimen</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="./index.css" />
+
+  <style>
+    /* ── Palette ─────────────────────────────────── */
+    :root {
+      --ink:   #111009;
+      --muted: #9a948c;
+      --paper: #f7f4ef;
+      --rule:  #e0dbd3;
+      --white: #ffffff;
+    }
+
+    /* ── Reset ───────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--typo-font);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Page shell ──────────────────────────────── */
+    .page { max-width: 1040px; margin: 0 auto; padding: 56px 48px 160px; }
+
+    /* ── Header ──────────────────────────────────── */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 0;
+    }
+
+    /* ── Sections ────────────────────────────────── */
+    .section { padding: 64px 0; border-top: 1px solid var(--rule); }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 40px;
+    }
+
+    /* ── Scale rows ──────────────────────────────── */
+    .scale-row {
+      display: grid;
+      grid-template-columns: 192px 1fr;
+      gap: 0 48px;
+      align-items: baseline;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .scale-row:last-child { border-bottom: none; }
+    .scale-meta { display: flex; flex-direction: column; gap: 5px; }
+
+    /* ── Spec table ──────────────────────────────── */
+    .spec-table { width: 100%; border-collapse: collapse; }
+    .spec-table th {
+      text-align: left;
+      padding: 10px 20px 10px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .spec-table td {
+      padding: 14px 20px 14px 0;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+    .spec-table tr:last-child td { border-bottom: none; }
+    .spec-mono {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      color: var(--muted);
+    }
+
+    /* ── Examples grid ───────────────────────────── */
+    .ex-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .ex-frame { background: var(--white); padding: 40px; }
+    .ex-frame.dark { background: var(--ink); }
+    .ex-frame.full { grid-column: 1 / -1; }
+    .ex-tag { color: var(--muted); margin-bottom: 28px; }
+
+    /* spacing helpers */
+    .gap-4  { margin-bottom: 4px; }
+    .gap-8  { margin-bottom: 8px; }
+    .gap-12 { margin-bottom: 12px; }
+    .gap-20 { margin-bottom: 20px; }
+    .gap-28 { margin-bottom: 28px; }
+    .gap-32 { margin-bottom: 32px; }
+
+    /* rule */
+    .ex-hr { border: none; border-top: 1px solid var(--rule); margin: 24px 0; }
+    .ex-hr.dark-hr { border-color: #2a2820; }
+
+    /* row alignment */
+    .ex-row { display: flex; align-items: baseline; gap: 16px; }
+    .ex-row-push { margin-left: auto; }
+
+    /* stat grid */
+    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .stat-cell { background: var(--paper); padding: 32px 28px; }
+
+    /* feature grid */
+    .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+
+    /* nav list */
+    .nav-list { display: flex; flex-direction: column; }
+    .nav-item { padding: 9px 0; border-bottom: 1px solid var(--rule); }
+    .nav-item:last-child { border-bottom: none; }
+
+    /* form */
+    .form-stack { display: flex; flex-direction: column; gap: 24px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-value { padding: 10px 0; border-bottom: 1px solid var(--rule); }
+
+    /* ── Token table ─────────────────────────────── */
+    .token-table { width: 100%; border-collapse: collapse; }
+    .token-table th {
+      text-align: left;
+      padding: 10px 24px 10px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .token-table td {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      padding: 12px 24px 12px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .token-table tr:last-child td { border-bottom: none; }
+    .token-table tr:nth-child(even) td { background: rgba(0,0,0,0.018); }
+
+    /* ── Footer ──────────────────────────────────── */
+    .site-footer {
+      padding-top: 28px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      margin-top: 80px;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ─── Header ─────────────────────────────────── -->
+  <header class="site-header">
+    <span class="typo-label">Typoser</span>
+    <span class="typo-caption" style="color:var(--muted)">Open Sauce One · v0.1</span>
+  </header>
+
+
+  <!-- ─── 1. Scale ───────────────────────────────── -->
+  <section class="section">
+    <div class="section-head">
+      <span class="typo-label">Scale</span>
+      <span class="typo-caption" style="color:var(--muted)">10 styles</span>
+    </div>
+
+    <div class="scale-row">
+      <div class="scale-meta">
+        <span class="typo-label">Display</span>
+        <span class="typo-caption" style="color:var(--muted)">72 · 300 · −0.02em · 1.056</span>
+      </div>
+      <p class="typo-display">Aa</p>
+    </div>
+
+    <div class="scale-row">
+      <div class="scale-meta">
+        <span class="typo-label">Heading 1</span>
+        <span class="typo-caption" style="color:var(--muted)">48 · 500 · −0.03em · 1.083</span>
+      </div>
+      <p class="typo-heading-1">The quick brown fox</p>
+    </div>
+
+    <div class="scale-row">
+      <div class="scale-meta">
+        <span class="typo-label">Heading 2</span>
+        <span class="typo-caption" style="color:var(--muted)">36 · 400 · −0.01em · 1.222</span>
+      </div>
+      <p class="typo-heading-2">The quick brown fox jumps</p>
+    </div>
+
+    <div class="scale-row">
+      <div class="scale-meta">
+        <span class="typo-label">Heading 3</span>
+        <span class="typo-caption" style="color:var(--muted)">28 · 400 · 0em · 1.25</span>
+      </div>
+      <p class="typo-heading-3">The quick brown fox jumps over the lazy dog</p>
+    </div>
+
+    <div class="scale-row">
+      <div class="scale-meta">
+        <span class="typo-label">Heading 4</span>
+        <span class="typo-caption" style="color:var(--muted)">22 · 500 · 0em · 1.273</span>
+      </div>
+      <p class="typo-heading-4">The quick brown fox jumps over the lazy dog</p>
+    </div>
+
+    <div class="scale-row">
+      <div class="scale-meta">
+        <span class="typo-label">Body LG</span>
+        <span class="typo-caption" style="color:var(--muted)">18 · 400 · 0em · 1.667</span>
+      </div>
+      <p class="typo-body-lg">Typography is the craft of arranging type to make written language visible.</p>
+    </div>
+
+    <div class="scale-row">
+      <div class="scale-meta">
+        <span class="typo-label">Body</span>
+        <span class="typo-caption" style="color:var(--muted)">16 · 400 · +0.01em · 1.5</span>
+      </div>
+      <p class="typo-body">Typography is the craft of arranging type to make written language visible. Good type is invisible — it lets the reader move without friction.</p>
+    </div>
+
+    <div class="scale-row">
+      <div class="scale-meta">
+        <span class="typo-label">Body SM</span>
+        <span class="typo-caption" style="color:var(--muted)">14 · 400 · +0.01em · 1.5</span>
+      </div>
+      <p class="typo-body-sm">Typography is the craft of arranging type to make written language visible. Good type is invisible — it lets the reader move without friction or distraction.</p>
+    </div>
+
+    <div class="scale-row">
+      <div class="scale-meta">
+        <span class="typo-label">Label</span>
+        <span class="typo-caption" style="color:var(--muted)">13 · 600 · +0.01em · 1.385</span>
+      </div>
+      <p class="typo-label">Published · 4 min read · Design Systems</p>
+    </div>
+
+    <div class="scale-row">
+      <div class="scale-meta">
+        <span class="typo-label">Caption</span>
+        <span class="typo-caption" style="color:var(--muted)">12 · 400 · +0.01em · 1.5</span>
+      </div>
+      <p class="typo-caption">Fig. 1 — Typographic scale optimised for screen reading at standard display densities.</p>
+    </div>
+  </section>
+
+
+  <!-- ─── 2. Specifications ──────────────────────── -->
+  <section class="section">
+    <div class="section-head">
+      <span class="typo-label">Specifications</span>
+      <span class="typo-caption" style="color:var(--muted)">Size · Weight · Leading · Tracking · Role</span>
+    </div>
+
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th class="typo-label" style="color:var(--muted)">Style</th>
+          <th class="typo-label" style="color:var(--muted)">Size</th>
+          <th class="typo-label" style="color:var(--muted)">Weight</th>
+          <th class="typo-label" style="color:var(--muted)">Leading</th>
+          <th class="typo-label" style="color:var(--muted)">Tracking</th>
+          <th class="typo-label" style="color:var(--muted)">Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="typo-label">.typo-display</td>
+          <td class="typo-caption spec-mono">72 px</td>
+          <td class="typo-caption spec-mono">300</td>
+          <td class="typo-caption spec-mono">1.056</td>
+          <td class="typo-caption spec-mono">−0.02 em</td>
+          <td class="typo-caption" style="color:var(--muted)">Hero moments, landing pages, splash screens</td>
+        </tr>
+        <tr>
+          <td class="typo-label">.typo-heading-1</td>
+          <td class="typo-caption spec-mono">48 px</td>
+          <td class="typo-caption spec-mono">500</td>
+          <td class="typo-caption spec-mono">1.083</td>
+          <td class="typo-caption spec-mono">−0.03 em</td>
+          <td class="typo-caption" style="color:var(--muted)">Primary page title — one per view</td>
+        </tr>
+        <tr>
+          <td class="typo-label">.typo-heading-2</td>
+          <td class="typo-caption spec-mono">36 px</td>
+          <td class="typo-caption spec-mono">400</td>
+          <td class="typo-caption spec-mono">1.222</td>
+          <td class="typo-caption spec-mono">−0.01 em</td>
+          <td class="typo-caption" style="color:var(--muted)">Major section titles, article headings</td>
+        </tr>
+        <tr>
+          <td class="typo-label">.typo-heading-3</td>
+          <td class="typo-caption spec-mono">28 px</td>
+          <td class="typo-caption spec-mono">400</td>
+          <td class="typo-caption spec-mono">1.25</td>
+          <td class="typo-caption spec-mono">0 em</td>
+          <td class="typo-caption" style="color:var(--muted)">Sub-section headings, feature titles</td>
+        </tr>
+        <tr>
+          <td class="typo-label">.typo-heading-4</td>
+          <td class="typo-caption spec-mono">22 px</td>
+          <td class="typo-caption spec-mono">500</td>
+          <td class="typo-caption spec-mono">1.273</td>
+          <td class="typo-caption spec-mono">0 em</td>
+          <td class="typo-caption" style="color:var(--muted)">Card titles, modal headings, sidebar labels</td>
+        </tr>
+        <tr>
+          <td class="typo-label">.typo-body-lg</td>
+          <td class="typo-caption spec-mono">18 px</td>
+          <td class="typo-caption spec-mono">400</td>
+          <td class="typo-caption spec-mono">1.667</td>
+          <td class="typo-caption spec-mono">0 em</td>
+          <td class="typo-caption" style="color:var(--muted)">Long-form reading, editorial prose, docs</td>
+        </tr>
+        <tr>
+          <td class="typo-label">.typo-body</td>
+          <td class="typo-caption spec-mono">16 px</td>
+          <td class="typo-caption spec-mono">400</td>
+          <td class="typo-caption spec-mono">1.5</td>
+          <td class="typo-caption spec-mono">+0.01 em</td>
+          <td class="typo-caption" style="color:var(--muted)">Default UI body text, descriptions, form copy</td>
+        </tr>
+        <tr>
+          <td class="typo-label">.typo-body-sm</td>
+          <td class="typo-caption spec-mono">14 px</td>
+          <td class="typo-caption spec-mono">400</td>
+          <td class="typo-caption spec-mono">1.5</td>
+          <td class="typo-caption spec-mono">+0.01 em</td>
+          <td class="typo-caption" style="color:var(--muted)">Secondary descriptions, list subtitles, sidebars</td>
+        </tr>
+        <tr>
+          <td class="typo-label">.typo-label</td>
+          <td class="typo-caption spec-mono">13 px</td>
+          <td class="typo-caption spec-mono">600</td>
+          <td class="typo-caption spec-mono">1.385</td>
+          <td class="typo-caption spec-mono">+0.01 em</td>
+          <td class="typo-caption" style="color:var(--muted)">Form labels, tags, nav items, button text</td>
+        </tr>
+        <tr>
+          <td class="typo-label">.typo-caption</td>
+          <td class="typo-caption spec-mono">12 px</td>
+          <td class="typo-caption spec-mono">400</td>
+          <td class="typo-caption spec-mono">1.5</td>
+          <td class="typo-caption spec-mono">+0.01 em</td>
+          <td class="typo-caption" style="color:var(--muted)">Timestamps, attributions, footnotes, helper text</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <!-- ─── 4. Examples ────────────────────────────── -->
+  <section class="section">
+    <div class="section-head">
+      <span class="typo-label">Examples</span>
+      <span class="typo-caption" style="color:var(--muted)">Patterns in use</span>
+    </div>
+
+    <div class="ex-grid">
+
+      <!-- Page hero — dark, full width -->
+      <div class="ex-frame dark full">
+        <p class="typo-caption ex-tag" style="color:#6b6456">Page hero</p>
+        <p class="typo-display gap-12" style="color:#f7f4ef">Design Systems<br />that last.</p>
+        <p class="typo-body-lg gap-32" style="color:#7a7268; max-width:56ch">A typographic system removes decisions at the point of use — so your team ships faster, with less inconsistency across surfaces.</p>
+        <div class="ex-row">
+          <span class="typo-label" style="color:#6b6456">Documentation</span>
+          <span class="typo-label" style="color:#6b6456">·</span>
+          <span class="typo-label" style="color:#6b6456">Changelog</span>
+          <span class="typo-caption ex-row-push" style="color:#6b6456">v0.1.0 · June 2026</span>
+        </div>
+      </div>
+
+      <!-- Article card -->
+      <div class="ex-frame">
+        <p class="typo-caption ex-tag" style="color:var(--muted)">Article card</p>
+        <p class="typo-label gap-8" style="color:var(--muted)">Typography · 6 min read</p>
+        <p class="typo-heading-2 gap-12">Why type systems outlast design trends</p>
+        <p class="typo-body gap-28" style="color:var(--muted); max-width:48ch">The best typographic systems are invisible. They give readers a clear path through content without announcing themselves at every step.</p>
+        <hr class="ex-hr" />
+        <div class="ex-row">
+          <span class="typo-label" style="color:var(--muted)">Serkan Mercan</span>
+          <span class="typo-caption ex-row-push" style="color:var(--muted)">June 2026</span>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="ex-frame">
+        <p class="typo-caption ex-tag" style="color:var(--muted)">Testimonial</p>
+        <p class="typo-heading-2 gap-32">"The type system saved us hundreds of small decisions every week."</p>
+        <p class="typo-label gap-4">Serkan Mercan</p>
+        <p class="typo-caption" style="color:var(--muted)">Founder, Studio Mercan</p>
+      </div>
+
+      <!-- Metrics — full width -->
+      <div class="ex-frame full" style="padding: 0; background: transparent;">
+        <p class="typo-caption ex-tag" style="color:var(--muted); padding: 40px 40px 0">Metrics</p>
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <p class="typo-display gap-8">2,847</p>
+            <p class="typo-label gap-4" style="color:var(--muted)">Active users</p>
+            <p class="typo-caption" style="color:var(--muted)">+12% this month</p>
+          </div>
+          <div class="stat-cell">
+            <p class="typo-display gap-8">98.2</p>
+            <p class="typo-label gap-4" style="color:var(--muted)">Uptime score</p>
+            <p class="typo-caption" style="color:var(--muted)">Last 30 days</p>
+          </div>
+          <div class="stat-cell">
+            <p class="typo-display gap-8">4.8</p>
+            <p class="typo-label gap-4" style="color:var(--muted)">Avg. rating</p>
+            <p class="typo-caption" style="color:var(--muted)">From 1,204 reviews</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features — full width -->
+      <div class="ex-frame full">
+        <p class="typo-caption ex-tag" style="color:var(--muted)">Feature overview</p>
+        <div class="feat-grid">
+          <div>
+            <p class="typo-heading-3 gap-12">Design tokens</p>
+            <p class="typo-body-sm" style="color:var(--muted)">Every value is a named token. Override at the root and every component responds without hunting through files.</p>
+          </div>
+          <div>
+            <p class="typo-heading-3 gap-12">Zero dependencies</p>
+            <p class="typo-body-sm" style="color:var(--muted)">Plain CSS custom properties. No Tailwind, no PostCSS required. Works anywhere CSS is valid.</p>
+          </div>
+          <div>
+            <p class="typo-heading-3 gap-12">Framework agnostic</p>
+            <p class="typo-body-sm" style="color:var(--muted)">One import works in Next.js, Vite, plain HTML, or a React component library equally well.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation sidebar -->
+      <div class="ex-frame">
+        <p class="typo-caption ex-tag" style="color:var(--muted)">Navigation</p>
+        <p class="typo-heading-4 gap-20">Documentation</p>
+        <nav class="nav-list">
+          <div class="nav-item">
+            <p class="typo-label">Getting started</p>
+          </div>
+          <div class="nav-item">
+            <p class="typo-label gap-4">Installation</p>
+            <p class="typo-caption" style="color:var(--muted)">npm · CDN · local</p>
+          </div>
+          <div class="nav-item">
+            <p class="typo-label">Type scale</p>
+          </div>
+          <div class="nav-item">
+            <p class="typo-label gap-4">Custom properties</p>
+            <p class="typo-caption" style="color:var(--muted)">Primitives reference</p>
+          </div>
+          <div class="nav-item">
+            <p class="typo-label">Changelog</p>
+          </div>
+        </nav>
+        <p class="typo-caption" style="color:var(--muted); margin-top:20px">Last updated June 2026</p>
+      </div>
+
+      <!-- Form -->
+      <div class="ex-frame">
+        <p class="typo-caption ex-tag" style="color:var(--muted)">Form</p>
+        <div class="form-stack">
+          <div class="form-field">
+            <p class="typo-label">Full name</p>
+            <p class="typo-body form-value">Serkan Mercan</p>
+          </div>
+          <div class="form-field">
+            <p class="typo-label">Email address</p>
+            <p class="typo-body form-value">hello@typoser.design</p>
+            <p class="typo-caption" style="color:var(--muted)">Used for account login and notifications.</p>
+          </div>
+          <div class="form-field">
+            <p class="typo-label">Role</p>
+            <p class="typo-body form-value" style="color:var(--muted)">Select a role</p>
+            <p class="typo-caption" style="color:var(--muted)">Determines your default permissions.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ─── 5. Token Reference ─────────────────────── -->
+  <section class="section">
+    <div class="section-head">
+      <span class="typo-label">Token Reference</span>
+      <span class="typo-caption" style="color:var(--muted)">CSS custom properties · src/tokens/primitives.css</span>
+    </div>
+
+    <table class="token-table">
+      <thead>
+        <tr>
+          <th class="typo-label" style="color:var(--muted)">Token</th>
+          <th class="typo-label" style="color:var(--muted)">Value</th>
+          <th class="typo-label" style="color:var(--muted)">px</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--ink)">--typo-size-display</td>
+          <td style="color:var(--muted)">4.5rem</td>
+          <td style="color:var(--muted)">72</td>
+        </tr>
+        <tr>
+          <td style="color:var(--ink)">--typo-size-heading-1</td>
+          <td style="color:var(--muted)">3rem</td>
+          <td style="color:var(--muted)">48</td>
+        </tr>
+        <tr>
+          <td style="color:var(--ink)">--typo-size-heading-2</td>
+          <td style="color:var(--muted)">2.25rem</td>
+          <td style="color:var(--muted)">36</td>
+        </tr>
+        <tr>
+          <td style="color:var(--ink)">--typo-size-heading-3</td>
+          <td style="color:var(--muted)">1.75rem</td>
+          <td style="color:var(--muted)">28</td>
+        </tr>
+        <tr>
+          <td style="color:var(--ink)">--typo-size-heading-4</td>
+          <td style="color:var(--muted)">1.375rem</td>
+          <td style="color:var(--muted)">22</td>
+        </tr>
+        <tr>
+          <td style="color:var(--ink)">--typo-size-body-lg</td>
+          <td style="color:var(--muted)">1.125rem</td>
+          <td style="color:var(--muted)">18</td>
+        </tr>
+        <tr>
+          <td style="color:var(--ink)">--typo-size-body</td>
+          <td style="color:var(--muted)">1rem</td>
+          <td style="color:var(--muted)">16</td>
+        </tr>
+        <tr>
+          <td style="color:var(--ink)">--typo-size-body-sm</td>
+          <td style="color:var(--muted)">0.875rem</td>
+          <td style="color:var(--muted)">14</td>
+        </tr>
+        <tr>
+          <td style="color:var(--ink)">--typo-size-label</td>
+          <td style="color:var(--muted)">0.8125rem</td>
+          <td style="color:var(--muted)">13</td>
+        </tr>
+        <tr>
+          <td style="color:var(--ink)">--typo-size-caption</td>
+          <td style="color:var(--muted)">0.75rem</td>
+          <td style="color:var(--muted)">12</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <footer class="site-footer">
+    <span class="typo-caption" style="color:var(--muted)">Typoser — typographic style library</span>
+    <span class="typo-caption" style="color:var(--muted)">Open Sauce One · SIL Open Font License</span>
+  </footer>
+
+</div>
+</body>
+</html>

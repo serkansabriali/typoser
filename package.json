@@ -1,0 +1,39 @@
+{
+  "name": "typoser",
+  "version": "0.1.0",
+  "description": "Framework-agnostic typographic style library — 10 named text styles set in Open Sauce One",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./index.css": "./index.css"
+  },
+  "files": [
+    "dist/",
+    "index.css",
+    "index.ts",
+    "src/fonts/",
+    "src/tokens/",
+    "src/js/",
+    "OFL.txt"
+  ],
+  "sideEffects": ["*.css"],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "typography",
+    "css",
+    "design-tokens",
+    "open-sauce-one",
+    "font"
+  ],
+  "author": "Serkan Ali <hello@serkanali.com>",
+  "license": "MIT"
+}

@@ -1,0 +1,46 @@
+:root {
+  /* ── Family ─────────────────────────────────── */
+  --typo-font: 'Open Sauce One', 'Open Sans', system-ui, -apple-system, sans-serif;
+
+  /* ── Sizes ──────────────────────────────────── */
+  --typo-size-display:    4.5rem;     /* 72px */
+  --typo-size-heading-1:  3rem;       /* 48px */
+  --typo-size-heading-2:  2.25rem;    /* 36px */
+  --typo-size-heading-3:  1.75rem;    /* 28px */
+  --typo-size-heading-4:  1.375rem;   /* 22px */
+  --typo-size-body-lg:    1.125rem;   /* 18px */
+  --typo-size-body:       1rem;       /* 16px */
+  --typo-size-body-sm:    0.875rem;   /* 14px */
+  --typo-size-label:      0.8125rem;  /* 13px */
+  --typo-size-caption:    0.75rem;    /* 12px */
+
+  /* ── Weights ────────────────────────────────── */
+  --typo-weight-light:    300;
+  --typo-weight-regular:  400;
+  --typo-weight-medium:   500;
+  --typo-weight-semibold: 600;
+
+  /* ── Line heights (unitless) ────────────────── */
+  --typo-leading-display:    1.056;   /* 76 / 72  */
+  --typo-leading-heading-1:  1.083;   /* 52 / 48  */
+  --typo-leading-heading-2:  1.222;   /* 44 / 36  */
+  --typo-leading-heading-3:  1.25;    /* 35 / 28  */
+  --typo-leading-heading-4:  1.273;   /* 28 / 22  */
+  --typo-leading-body-lg:    1.667;   /* 30 / 18  */
+  --typo-leading-body:       1.5;     /* 24 / 16  */
+  --typo-leading-body-sm:    1.5;     /* 21 / 14  */
+  --typo-leading-label:      1.385;   /* 18 / 13  */
+  --typo-leading-caption:    1.5;     /* 18 / 12  */
+
+  /* ── Letter spacing ─────────────────────────── */
+  --typo-tracking-display:    -0.02em;
+  --typo-tracking-heading-1:  -0.03em;
+  --typo-tracking-heading-2:  -0.01em;
+  --typo-tracking-heading-3:   0em;
+  --typo-tracking-heading-4:   0em;
+  --typo-tracking-body-lg:     0em;
+  --typo-tracking-body:        0.01em;
+  --typo-tracking-body-sm:     0.01em;
+  --typo-tracking-label:       0.01em;
+  --typo-tracking-caption:     0.01em;
+}
