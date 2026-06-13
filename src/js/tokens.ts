@@ -27,10 +27,12 @@ const fontSize = {
 
 /* ── Weights ────────────────────────────────── */
 const fontWeight = {
-  light:    300,
-  regular:  400,
-  medium:   500,
-  semibold: 600,
+  light:      300,
+  regular:    400,
+  medium:     500,
+  semibold:   600,
+  bold:       700,
+  extrabold:  800,
 } as const;
 
 /* ── Line heights (unitless) ────────────────── */

@@ -6,6 +6,8 @@
 
 Ten named styles, all set in Open Sauce One. Hierarchy is carried primarily by size and line height rather than weight, so the weight progression is deliberately non-linear.
 
+**Inline emphasis:** `<strong>` and `<b>` inside any `.typo-*` class or `.typo-prose` element render at ExtraBold (800). This is intentional — lighter weights (600, 700) don't read as emphasis against the Regular and Medium bases at screen sizes.
+
 ---
 
 ## Display

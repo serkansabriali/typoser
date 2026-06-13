@@ -19,6 +19,8 @@
   --typo-weight-regular:  400;
   --typo-weight-medium:   500;
   --typo-weight-semibold: 600;
+  --typo-weight-bold:     700;
+  --typo-weight-extrabold: 800;
 
   /* ── Line heights (unitless) ────────────────── */
   --typo-leading-display:    1.056;   /* 76 / 72  */
