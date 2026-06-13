@@ -68,5 +68,5 @@
 
 .typo-prose strong,
 .typo-prose b {
-  font-weight: var(--typo-weight-semibold);
+  font-weight: var(--typo-weight-extrabold);
 }

@@ -77,3 +77,17 @@
   line-height:    var(--typo-leading-caption);
   letter-spacing: var(--typo-tracking-caption);
 }
+
+/* ── Inline emphasis ─────────────────────────── */
+.typo-display strong,   .typo-display b,
+.typo-heading-1 strong, .typo-heading-1 b,
+.typo-heading-2 strong, .typo-heading-2 b,
+.typo-heading-3 strong, .typo-heading-3 b,
+.typo-heading-4 strong, .typo-heading-4 b,
+.typo-body-lg strong,   .typo-body-lg b,
+.typo-body strong,      .typo-body b,
+.typo-body-sm strong,   .typo-body-sm b,
+.typo-label strong,     .typo-label b,
+.typo-caption strong,   .typo-caption b {
+  font-weight: var(--typo-weight-extrabold);
+}
