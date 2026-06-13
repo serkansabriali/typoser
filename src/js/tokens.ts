@@ -12,7 +12,7 @@ export const fontFamily =
   "'Open Sauce One', 'Open Sans', system-ui, -apple-system, sans-serif";
 
 /* ── Sizes (rem) ────────────────────────────── */
-export const fontSize = {
+const fontSize = {
   display:    '4.5rem',     // 72px
   heading1:   '3rem',       // 48px
   heading2:   '2.25rem',    // 36px
@@ -26,7 +26,7 @@ export const fontSize = {
 } as const;
 
 /* ── Weights ────────────────────────────────── */
-export const fontWeight = {
+const fontWeight = {
   light:    300,
   regular:  400,
   medium:   500,
@@ -34,7 +34,7 @@ export const fontWeight = {
 } as const;
 
 /* ── Line heights (unitless) ────────────────── */
-export const lineHeight = {
+const lineHeight = {
   display:    1.056,
   heading1:   1.083,
   heading2:   1.222,
@@ -47,8 +47,8 @@ export const lineHeight = {
   caption:    1.5,
 } as const;
 
-/* ── Letter spacing (em) ────────────────────── */
-export const letterSpacing = {
+/* ── Letter spacing (em) ─────────────────────── */
+const letterSpacing = {
   display:    '-0.02em',
   heading1:   '-0.03em',
   heading2:   '-0.01em',

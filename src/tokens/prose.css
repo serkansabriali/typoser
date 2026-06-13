@@ -1,0 +1,72 @@
+.typo-prose {
+  font-family: var(--typo-font);
+}
+
+.typo-prose h1 {
+  font-size:      var(--typo-size-heading-1);
+  font-weight:    var(--typo-weight-medium);
+  line-height:    var(--typo-leading-heading-1);
+  letter-spacing: var(--typo-tracking-heading-1);
+}
+
+.typo-prose h2 {
+  font-size:      var(--typo-size-heading-2);
+  font-weight:    var(--typo-weight-regular);
+  line-height:    var(--typo-leading-heading-2);
+  letter-spacing: var(--typo-tracking-heading-2);
+}
+
+.typo-prose h3 {
+  font-size:      var(--typo-size-heading-3);
+  font-weight:    var(--typo-weight-regular);
+  line-height:    var(--typo-leading-heading-3);
+  letter-spacing: var(--typo-tracking-heading-3);
+}
+
+.typo-prose h4 {
+  font-size:      var(--typo-size-heading-4);
+  font-weight:    var(--typo-weight-regular);
+  line-height:    var(--typo-leading-heading-4);
+  letter-spacing: var(--typo-tracking-heading-4);
+}
+
+.typo-prose h5 {
+  font-size:      var(--typo-size-body-lg);
+  font-weight:    var(--typo-weight-regular);
+  line-height:    var(--typo-leading-body-lg);
+  letter-spacing: var(--typo-tracking-body-lg);
+}
+
+.typo-prose h6 {
+  font-size:      var(--typo-size-body);
+  font-weight:    var(--typo-weight-regular);
+  line-height:    var(--typo-leading-body);
+  letter-spacing: var(--typo-tracking-body);
+}
+
+.typo-prose p,
+.typo-prose li {
+  font-size:      var(--typo-size-body);
+  font-weight:    var(--typo-weight-regular);
+  line-height:    var(--typo-leading-body);
+  letter-spacing: var(--typo-tracking-body);
+}
+
+.typo-prose blockquote {
+  font-size:      var(--typo-size-body-lg);
+  font-weight:    var(--typo-weight-regular);
+  line-height:    var(--typo-leading-body-lg);
+  letter-spacing: var(--typo-tracking-body-lg);
+}
+
+.typo-prose small {
+  font-size:      var(--typo-size-caption);
+  font-weight:    var(--typo-weight-regular);
+  line-height:    var(--typo-leading-caption);
+  letter-spacing: var(--typo-tracking-caption);
+}
+
+.typo-prose strong,
+.typo-prose b {
+  font-weight: var(--typo-weight-semibold);
+}

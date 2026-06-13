@@ -1,3 +1,4 @@
 @import './src/fonts/fonts.css';
 @import './src/tokens/primitives.css';
 @import './src/tokens/styles.css';
+@import './src/tokens/prose.css';
