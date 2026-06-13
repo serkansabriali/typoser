@@ -40,7 +40,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/serkansabriali/typoser.git"
+    "url": "git+https://github.com/serkansabriali/typoser.git"
   },
   "homepage": "https://github.com/serkansabriali/typoser"
 }
