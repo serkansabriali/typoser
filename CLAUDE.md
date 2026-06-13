@@ -24,14 +24,15 @@ Values flow in one direction. **Figma is the upstream design source of truth**; 
 ```
 Figma file (fileKey: bQ7PTFBss8xYhqSowpO1Bc, node 2:13)
   └─> src/tokens/primitives.css   raw values as --typo-* custom properties (THE CSS source of truth)
-        └─> src/tokens/styles.css   the 10 .typo-* classes, composed only from primitives vars
-              └─> index.css         barrel: @imports fonts + primitives + styles (the consumer entry for CSS)
+        └─> src/tokens/styles.css   the 10 .typo-* classes + inline emphasis (strong/b) rules
+        └─> src/tokens/prose.css    .typo-prose scope class for unclassed HTML
+              └─> index.css         barrel: @imports fonts + primitives + styles + prose (consumer CSS entry)
   └─> src/js/tokens.ts            HAND-MAINTAINED mirror of primitives.css for CSS-in-JS consumers
         └─> index.ts              barrel: re-exports tokens
               └─> dist/index.js    compiled output (the consumer entry for JS/TS, per package.json exports)
 ```
 
-`styles.css` classes must reference `var(--typo-*)` only — never hardcode a size/weight/leading/tracking. The specimen does the same: every text element uses a `.typo-*` class, with no ad-hoc font sizing in its `<style>` block.
+`styles.css` and `prose.css` must reference `var(--typo-*)` only — never hardcode a size/weight/leading/tracking. The specimen does the same: every text element uses a `.typo-*` class, with no ad-hoc font sizing in its `<style>` block.
 
 ### The critical maintenance hazard: four-place sync
 
@@ -50,8 +51,9 @@ Ten styles: `display`, `heading-1` through `heading-4`, `body-lg`, `body`, `body
 
 Two design decisions that look like mistakes but are intentional — do not "fix" them without discussion:
 
-- **Weight progression is non-monotonic** (Display Light 300 → H1 Medium 500 → H2/H3 Regular 400 → H4 Medium 500). Hierarchy is carried mainly by **size and line height**, not weight. H2/H3 sit at the same weight as body text on purpose.
+- **Weight progression is non-monotonic** (Display Light 300 → H1 Medium 500 → H2/H3/H4 Regular 400). Hierarchy is carried mainly by **size and line height**, not weight. H2–H4 sit at the same weight as body text on purpose.
 - **Label is sentence case, not uppercase.** The Semibold 600 weight provides the emphasis. The user explicitly rejected all-caps styles — never introduce `text-transform: uppercase` into a defined style.
+- **`<strong>` and `<b>` render at ExtraBold (800)** across all named classes and `.typo-prose`. SemiBold (600) and Bold (700) were tested and not visually distinct enough against the Regular and Medium bases at screen sizes.
 
 ## Working with the Figma file
 
@@ -61,4 +63,4 @@ The styles live in Figma file `bQ7PTFBss8xYhqSowpO1Bc` (frame node `2:13`, page 
 
 ## Font status
 
-Open Sauce One (SIL OFL) is **not yet vendored**. `src/fonts/fonts.css` holds a commented-out `@font-face` block ready for the `.woff2` drop-in, plus a Google Fonts import of Open Sans as a temporary fallback. The font stack in `primitives.css` is `'Open Sauce One', 'Open Sans', system-ui, -apple-system, sans-serif` — Open Sans must stay in the stack for that fallback to actually take effect.
+Open Sauce One (SIL OFL) is **fully vendored** as `.woff2` files in `src/fonts/`. All six weights are included — Light (300), Regular (400), Medium (500), SemiBold (600), Bold (700), ExtraBold (800) — each with an upright and italic variant. `fonts.css` declares a `@font-face` block for each. The font stack in `primitives.css` is `'Open Sauce One', 'Open Sans', system-ui, -apple-system, sans-serif` — Open Sans remains in the stack as a fallback for environments where the woff2 files can't be served.

@@ -7,6 +7,20 @@ Versions follow [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.3.0] — 2026-06-13
+
+### Added
+- `<strong>` and `<b>` emphasis defined at ExtraBold (800) for all 10 named `.typo-*` classes and `.typo-prose`. Lighter weights (600, 700) were not visually distinct enough against the Regular and Medium bases at screen sizes.
+- `--typo-weight-bold` (700) and `--typo-weight-extrabold` (800) CSS custom properties added to `src/tokens/primitives.css`.
+- `bold` and `extrabold` entries added to the `fontWeight` object in `src/js/tokens.ts`.
+- Open Sauce One Bold and ExtraBold `.woff2` files vendored (uprights and italics); `fonts.css` updated with the four new `@font-face` blocks.
+- Emphasis preview section added to `specimen.html` showing `<strong>` rendering across all 10 styles.
+
+### Changed
+- `.typo-prose strong, .typo-prose b` bumped from SemiBold (600) to ExtraBold (800) to match the named-class treatment.
+
+---
+
 ## [0.2.0] — 2026-06-13
 
 ### Added
