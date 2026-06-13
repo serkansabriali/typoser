@@ -122,6 +122,14 @@
     .form-field { display: flex; flex-direction: column; gap: 6px; }
     .form-value { padding: 10px 0; border-bottom: 1px solid var(--rule); }
 
+    /* ── Prose demo ─────────────────────────────── */
+    /* spacing below is demo-only — .typo-prose governs type only */
+    .prose-demo > * + * { margin-top: 1em; }
+    .prose-demo > h1 + *,
+    .prose-demo > h2 + *,
+    .prose-demo > h3 + *,
+    .prose-demo > h4 + * { margin-top: 0.5em; }
+
     /* ── Token table ─────────────────────────────── */
     .token-table { width: 100%; border-collapse: collapse; }
     .token-table th {
@@ -485,7 +493,39 @@
   </section>
 
 
-  <!-- ─── 5. Token Reference ─────────────────────── -->
+  <!-- ─── 5. Prose ────────────────────────────────── -->
+  <section class="section">
+    <div class="section-head">
+      <span class="typo-label">Prose</span>
+      <span class="typo-caption" style="color:var(--muted)">.typo-prose — unclassed HTML from a CMS or markdown renderer</span>
+    </div>
+
+    <div class="ex-grid">
+      <div class="ex-frame full">
+        <div class="typo-prose prose-demo" style="max-width: 68ch">
+          <h1>The invisible art of typographic systems</h1>
+          <p>Good type is invisible. Readers don't notice the typeface, the size, or the spacing — they simply move through content without friction. This effect isn't accidental; it's the result of a consistent, considered system applied at every level.</p>
+          <h2>Why systems matter</h2>
+          <p>A typographic system replaces hundreds of micro-decisions with a single source of truth. Every heading, every label, every caption follows a defined relationship. <strong>Consistency compounds</strong> — the benefit grows as the surface area of a product grows.</p>
+          <h3>Scale and hierarchy</h3>
+          <p>Hierarchy isn't just about making things bigger. Weight, line height, and tracking all contribute. A heading at 28px with generous leading reads clearly as a section break even when its weight matches the body text below it.</p>
+          <h4>Within a section</h4>
+          <p>Sub-headings group related content. At 22px they're clearly a heading — but they don't compete with the section title above them.</p>
+          <blockquote>The best typographic systems are invisible. They give readers a clear path through content without announcing themselves at every step.</blockquote>
+          <p>List items follow the same style as body text — reading is continuous whether the content is prose or enumerated.</p>
+          <ul>
+            <li>10 named styles, all in Open Sauce One</li>
+            <li>Size and leading carry hierarchy, not weight alone</li>
+            <li>Label is sentence case — Semibold provides the emphasis</li>
+          </ul>
+          <small>All styles rendered at standard screen density. Open Sauce One, SIL Open Font License.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 6. Token Reference ─────────────────────── -->
   <section class="section">
     <div class="section-head">
       <span class="typo-label">Token Reference</span>

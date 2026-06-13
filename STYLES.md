@@ -1,6 +1,8 @@
 # Typographic Styles
 
 > **Scope:** Typoser governs *type only* — family, size, weight, line height, and tracking. Color, spacing, and layout are intentionally out of scope; pair this library with your project's own color and spacing tokens. The specimen renders everything monochrome to reinforce this.
+>
+> **The 10 named styles are the complete design API.** If a combination of size and weight isn't a named style here, it isn't part of the system. The underlying CSS custom properties are implementation detail and integration plumbing — not a toolkit for composing new styles. If you find yourself needing a style that doesn't exist, open a discussion rather than assembling one from primitives.
 
 Ten named styles, all set in Open Sauce One. Hierarchy is carried primarily by size and line height rather than weight, so the weight progression is deliberately non-linear.
 
