@@ -7,6 +7,7 @@
   font-weight:    var(--typo-weight-medium);
   line-height:    var(--typo-leading-heading-1);
   letter-spacing: var(--typo-tracking-heading-1);
+  text-wrap:      balance;
 }
 
 .typo-prose h2 {
@@ -14,6 +15,7 @@
   font-weight:    var(--typo-weight-regular);
   line-height:    var(--typo-leading-heading-2);
   letter-spacing: var(--typo-tracking-heading-2);
+  text-wrap:      balance;
 }
 
 .typo-prose h3 {
@@ -21,6 +23,7 @@
   font-weight:    var(--typo-weight-regular);
   line-height:    var(--typo-leading-heading-3);
   letter-spacing: var(--typo-tracking-heading-3);
+  text-wrap:      balance;
 }
 
 .typo-prose h4 {
@@ -28,6 +31,7 @@
   font-weight:    var(--typo-weight-regular);
   line-height:    var(--typo-leading-heading-4);
   letter-spacing: var(--typo-tracking-heading-4);
+  text-wrap:      balance;
 }
 
 .typo-prose h5 {
@@ -69,4 +73,9 @@
 .typo-prose strong,
 .typo-prose b {
   font-weight: var(--typo-weight-extrabold);
+}
+
+.typo-prose em,
+.typo-prose i {
+  font-style: italic;
 }

@@ -24,7 +24,7 @@ Values flow in one direction. **Figma is the upstream design source of truth**; 
 ```
 Figma file (fileKey: bQ7PTFBss8xYhqSowpO1Bc, node 2:13)
   └─> src/tokens/primitives.css   raw values as --typo-* custom properties (THE CSS source of truth)
-        └─> src/tokens/styles.css   the 10 .typo-* classes + inline emphasis (strong/b) rules
+        └─> src/tokens/styles.css   the 10 .typo-* classes + inline emphasis (strong/b, em/i) rules
         └─> src/tokens/prose.css    .typo-prose scope class for unclassed HTML
               └─> index.css         barrel: @imports fonts + primitives + styles + prose (consumer CSS entry)
   └─> src/js/tokens.ts            HAND-MAINTAINED mirror of primitives.css for CSS-in-JS consumers
@@ -54,6 +54,8 @@ Two design decisions that look like mistakes but are intentional — do not "fix
 - **Weight progression is non-monotonic** (Display Light 300 → H1 Medium 500 → H2/H3/H4 Regular 400). Hierarchy is carried mainly by **size and line height**, not weight. H2–H4 sit at the same weight as body text on purpose.
 - **Label is sentence case, not uppercase.** The Semibold 600 weight provides the emphasis. The user explicitly rejected all-caps styles — never introduce `text-transform: uppercase` into a defined style.
 - **`<strong>` and `<b>` render at ExtraBold (800)** across all named classes and `.typo-prose`. SemiBold (600) and Bold (700) were tested and not visually distinct enough against the Regular and Medium bases at screen sizes.
+- **`<em>` and `<i>` render italic** using the genuine italic cut of Open Sauce One, not browser synthetic oblique. Both `styles.css` (named classes) and `prose.css` carry this rule.
+- **Headings use `text-wrap: balance`** (`display` through `heading-4` in `styles.css`; `h1–h4` in `prose.css`). This prevents orphaned words on the last line of a wrapped heading. No effect on single-line headings.
 
 ## Working with the Figma file
 
