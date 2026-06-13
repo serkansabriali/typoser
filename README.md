@@ -63,7 +63,7 @@ The prose scope governs typography only — spacing and color remain your respon
 | `p`, `li` | body |
 | `blockquote` | body-lg |
 | `small` | caption |
-| `strong`, `b` | semibold weight within the current size |
+| `strong`, `b` | ExtraBold (800) within the current size |
 
 ### JS / TS
 
@@ -123,6 +123,7 @@ Three design decisions that are intentional — not mistakes:
 
 - **Weight progression is non-monotonic.** Hierarchy is carried mainly by size and line height. H2, H3, and H4 sit at Regular weight on purpose.
 - **Label is sentence case, not uppercase.** Semibold 600 provides the emphasis. `text-transform: uppercase` is never applied.
+- **`<strong>` and `<b>` render at ExtraBold (800).** Semibold (600) and Bold (700) were tested but not visually distinct enough against the Regular and Medium bases at screen sizes.
 - **The named styles are the complete set.** The `--typo-*` custom properties are implementation detail and integration plumbing, not a composition API. If a particular size-and-weight combination isn't a named style, it isn't part of the system.
 
 ## License
