@@ -1,6 +1,6 @@
 {
   "name": "typoser",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Framework-agnostic typographic style library — 10 named text styles set in Open Sauce One",
   "type": "module",
   "exports": {
