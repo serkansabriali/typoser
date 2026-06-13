@@ -7,6 +7,14 @@ Versions follow [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.3.1] — 2026-06-13
+
+### Added
+- `text-wrap: balance` on all heading classes (`display` through `heading-4`) in `styles.css` and `h1–h4` in `prose.css`. Prevents orphaned words on the last line of wrapped headings; no effect on single-line headings.
+- `<em>` and `<i>` now render using the genuine Open Sauce One italic cut across all 10 named classes and `.typo-prose`. Previously fell back to browser synthetic oblique.
+
+---
+
 ## [0.3.0] — 2026-06-13
 
 ### Added
