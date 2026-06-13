@@ -4,16 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Typoser is a **framework-agnostic typographic style library** — 10 named text styles set in Open Sauce One, distributed as plain CSS custom properties with a hand-maintained TypeScript token mirror. It is meant to be consumed across many projects (Next.js, Vite, plain HTML, React component libraries) with a single import and **zero runtime dependencies**. There is intentionally no Tailwind, no PostCSS, no build step, and (currently) no `package.json` — distribution mechanics are deliberately deferred.
+Typoser is a **framework-agnostic typographic style library** — 10 named text styles set in Open Sauce One, distributed as plain CSS custom properties with a hand-maintained TypeScript token mirror. It is meant to be consumed across many projects (Next.js, Vite, plain HTML, React component libraries) with a single import and **zero runtime dependencies**. There is intentionally no Tailwind and no PostCSS. The only build step is `tsc` to compile the TypeScript token mirror to `dist/`.
 
 **Scope is type only:** family, size, weight, line height, tracking. Color, spacing, and layout are out of scope by design — consumers pair Typoser with their own color/spacing tokens. The specimen renders everything monochrome to reinforce this.
 
 ## Commands
 
-There is no build, lint, or test runner. Verification is manual:
+There is no lint or test runner. Verification is manual:
 
 - **Preview the library:** `open specimen.html` — the type specimen consumes `index.css` exactly as a real project would. This is the primary way to visually verify any token change.
-- **Type-check the JS mirror:** `npx --yes -p typescript tsc --noEmit --strict --skipLibCheck index.ts src/js/tokens.ts`
+- **Build the JS/TS distribution:** `npm run build` — compiles `index.ts` + `src/js/tokens.ts` to `dist/` via `tsconfig.json`.
+- **Type-check without emitting:** `npx tsc --noEmit`
 - **Check for stale token names after a rename:** `grep -rn "typo-size-h[1-4]" src specimen.html index.css` (should return nothing).
 
 ## Architecture & the source-of-truth chain
@@ -26,7 +27,8 @@ Figma file (fileKey: bQ7PTFBss8xYhqSowpO1Bc, node 2:13)
         └─> src/tokens/styles.css   the 10 .typo-* classes, composed only from primitives vars
               └─> index.css         barrel: @imports fonts + primitives + styles (the consumer entry for CSS)
   └─> src/js/tokens.ts            HAND-MAINTAINED mirror of primitives.css for CSS-in-JS consumers
-        └─> index.ts              barrel: re-exports tokens (the consumer entry for JS/TS)
+        └─> index.ts              barrel: re-exports tokens
+              └─> dist/index.js    compiled output (the consumer entry for JS/TS, per package.json exports)
 ```
 
 `styles.css` classes must reference `var(--typo-*)` only — never hardcode a size/weight/leading/tracking. The specimen does the same: every text element uses a `.typo-*` class, with no ad-hoc font sizing in its `<style>` block.
