@@ -16,6 +16,7 @@ There is no lint or test runner. Verification is manual:
 - **Build the JS/TS distribution:** `npm run build` — compiles `index.ts` + `src/js/tokens.ts` to `dist/` via `tsconfig.json`.
 - **Type-check without emitting:** `npx tsc --noEmit`
 - **Check for stale token names after a rename:** `grep -rn "typo-size-h[1-4]" src specimen.html index.css` (should return nothing).
+- **Check for stale pre-rename names:** `grep -rn "typo-heading-[1-4]\b\|typo-body-lg\b\|typo-body-sm\b\|typo-display\b\|typo-label\b\|typo-body\b\|typo-caption\b" src specimen.html STYLES.md README.md` — should only match the intentional deprecated aliases in `styles.css` and the migration table in `STYLES.md`.
 
 ## Architecture & the source-of-truth chain
 
@@ -36,7 +37,7 @@ Figma file (fileKey: bQ7PTFBss8xYhqSowpO1Bc, node 2:13)
 
 ### The critical maintenance hazard: four-place sync
 
-A single token value (e.g. Heading 2's size) is duplicated in **four** places that have no automated link between them:
+A single token value (e.g. Heading 36's size) is duplicated in **four** places that have no automated link between them:
 
 1. `src/tokens/primitives.css` — the CSS value
 2. `src/js/tokens.ts` — the JS mirror (hand-maintained, can silently drift)
@@ -47,15 +48,17 @@ When changing any type value, update all four. This drift is not hypothetical �
 
 ## The type system itself
 
-Ten styles: `display`, `heading-1` through `heading-4`, `body-lg`, `body`, `body-sm`, `label`, `caption`. Naming is consistent across classes and tokens (`heading-1`, not `h1`).
+Ten styles: `display-72`, `heading-48`/`heading-36`/`heading-28`/`heading-22`, `body-18`/`body-16`/`body-14`, `label-13`, `caption-12`. Naming is consistent across classes and tokens (`heading-48`, JS key `heading48`).
+
+**Every style is named by pixel size, not rank or relative qualifier, on purpose.** `display`, `heading-1` through `heading-4`, `body-lg`, `body`, `body-sm`, `label`, `caption` (and matching JS keys `display`, `heading1`..`heading4`, `bodyLg`, `body`, `bodySm`, `label`, `caption`) are **deprecated CSS aliases only** — kept in `styles.css` for one release and removed in 1.0, with no JS alias (a TS compile error on the old key was judged safer than a silently stale CSS class). Do not use the old names in new code or docs. The old names implied either a fixed correspondence between a style and an HTML element (`heading-1` ↔ `<h1>`) or a relative qualifier that only means something next to a sibling that may not be present (`lg`/`sm` presumes a `body` exists to be relatively large/small against). Both assumptions broke down in real pages — e.g. a11y outlines that skip `<h1>`/`<h2>`, or a compact page whose lead heading only needs `heading-22`. The pixel number in each new name is a nominal label fixed at rename time, not a live-synced promise — a future value tweak to an existing step does not automatically require a matching rename (see `STYLES.md`'s "Naming" note).
 
 Two design decisions that look like mistakes but are intentional — do not "fix" them without discussion:
 
-- **Weight progression is non-monotonic** (Display Light 300 → H1 Medium 500 → H2/H3/H4 Regular 400). Hierarchy is carried mainly by **size and line height**, not weight. H2–H4 sit at the same weight as body text on purpose.
+- **Weight progression is non-monotonic** (Display 72 Light 300 → Heading 48 Medium 500 → Heading 36/28/22 Regular 400). Hierarchy is carried mainly by **size and line height**, not weight. Heading 36–22 sit at the same weight as body text on purpose.
 - **Label is sentence case, not uppercase.** The Semibold 600 weight provides the emphasis. The user explicitly rejected all-caps styles — never introduce `text-transform: uppercase` into a defined style.
 - **`<strong>` and `<b>` render at ExtraBold (800)** across all named classes and `.typo-prose`. SemiBold (600) and Bold (700) were tested and not visually distinct enough against the Regular and Medium bases at screen sizes.
 - **`<em>` and `<i>` render italic** using the genuine italic cut of Open Sauce One, not browser synthetic oblique. Both `styles.css` (named classes) and `prose.css` carry this rule.
-- **Headings use `text-wrap: balance`** (`display` through `heading-4` in `styles.css`; `h1–h4` in `prose.css`). This prevents orphaned words on the last line of a wrapped heading. No effect on single-line headings.
+- **Headings use `text-wrap: balance`** (`display-72` through `heading-22` in `styles.css`; `h1–h4` in `prose.css`). This prevents orphaned words on the last line of a wrapped heading. No effect on single-line headings.
 
 ## Working with the Figma file
 

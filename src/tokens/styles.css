@@ -1,111 +1,138 @@
-.typo-display {
+/* .typo-display is a deprecated alias for .typo-display-72 — remove in 1.0 */
+.typo-display-72, .typo-display {
   font-family:    var(--typo-font);
-  font-size:      var(--typo-size-display);
+  font-size:      var(--typo-size-display-72);
   font-weight:    var(--typo-weight-light);
-  line-height:    var(--typo-leading-display);
-  letter-spacing: var(--typo-tracking-display);
+  line-height:    var(--typo-leading-display-72);
+  letter-spacing: var(--typo-tracking-display-72);
   text-wrap:      balance;
 }
 
-.typo-heading-1 {
+/* .typo-heading-1..4 are deprecated aliases for .typo-heading-48/36/28/22 — remove in 1.0 */
+.typo-heading-48, .typo-heading-1 {
   font-family:    var(--typo-font);
-  font-size:      var(--typo-size-heading-1);
+  font-size:      var(--typo-size-heading-48);
   font-weight:    var(--typo-weight-medium);
-  line-height:    var(--typo-leading-heading-1);
-  letter-spacing: var(--typo-tracking-heading-1);
+  line-height:    var(--typo-leading-heading-48);
+  letter-spacing: var(--typo-tracking-heading-48);
   text-wrap:      balance;
 }
 
-.typo-heading-2 {
+.typo-heading-36, .typo-heading-2 {
   font-family:    var(--typo-font);
-  font-size:      var(--typo-size-heading-2);
+  font-size:      var(--typo-size-heading-36);
   font-weight:    var(--typo-weight-regular);
-  line-height:    var(--typo-leading-heading-2);
-  letter-spacing: var(--typo-tracking-heading-2);
+  line-height:    var(--typo-leading-heading-36);
+  letter-spacing: var(--typo-tracking-heading-36);
   text-wrap:      balance;
 }
 
-.typo-heading-3 {
+.typo-heading-28, .typo-heading-3 {
   font-family:    var(--typo-font);
-  font-size:      var(--typo-size-heading-3);
+  font-size:      var(--typo-size-heading-28);
   font-weight:    var(--typo-weight-regular);
-  line-height:    var(--typo-leading-heading-3);
-  letter-spacing: var(--typo-tracking-heading-3);
+  line-height:    var(--typo-leading-heading-28);
+  letter-spacing: var(--typo-tracking-heading-28);
   text-wrap:      balance;
 }
 
-.typo-heading-4 {
+.typo-heading-22, .typo-heading-4 {
   font-family:    var(--typo-font);
-  font-size:      var(--typo-size-heading-4);
+  font-size:      var(--typo-size-heading-22);
   font-weight:    var(--typo-weight-regular);
-  line-height:    var(--typo-leading-heading-4);
-  letter-spacing: var(--typo-tracking-heading-4);
+  line-height:    var(--typo-leading-heading-22);
+  letter-spacing: var(--typo-tracking-heading-22);
   text-wrap:      balance;
 }
 
-.typo-body-lg {
+/* .typo-body-lg is a deprecated alias for .typo-body-18 — remove in 1.0 */
+.typo-body-18, .typo-body-lg {
   font-family:    var(--typo-font);
-  font-size:      var(--typo-size-body-lg);
+  font-size:      var(--typo-size-body-18);
   font-weight:    var(--typo-weight-regular);
-  line-height:    var(--typo-leading-body-lg);
-  letter-spacing: var(--typo-tracking-body-lg);
+  line-height:    var(--typo-leading-body-18);
+  letter-spacing: var(--typo-tracking-body-18);
 }
 
-.typo-body {
+/* .typo-body is a deprecated alias for .typo-body-16 — remove in 1.0 */
+.typo-body-16, .typo-body {
   font-family:    var(--typo-font);
-  font-size:      var(--typo-size-body);
+  font-size:      var(--typo-size-body-16);
   font-weight:    var(--typo-weight-regular);
-  line-height:    var(--typo-leading-body);
-  letter-spacing: var(--typo-tracking-body);
+  line-height:    var(--typo-leading-body-16);
+  letter-spacing: var(--typo-tracking-body-16);
 }
 
-.typo-body-sm {
+/* .typo-body-sm is a deprecated alias for .typo-body-14 — remove in 1.0 */
+.typo-body-14, .typo-body-sm {
   font-family:    var(--typo-font);
-  font-size:      var(--typo-size-body-sm);
+  font-size:      var(--typo-size-body-14);
   font-weight:    var(--typo-weight-regular);
-  line-height:    var(--typo-leading-body-sm);
-  letter-spacing: var(--typo-tracking-body-sm);
+  line-height:    var(--typo-leading-body-14);
+  letter-spacing: var(--typo-tracking-body-14);
 }
 
-.typo-label {
+/* .typo-label is a deprecated alias for .typo-label-13 — remove in 1.0 */
+.typo-label-13, .typo-label {
   font-family:    var(--typo-font);
-  font-size:      var(--typo-size-label);
+  font-size:      var(--typo-size-label-13);
   font-weight:    var(--typo-weight-semibold);
-  line-height:    var(--typo-leading-label);
-  letter-spacing: var(--typo-tracking-label);
+  line-height:    var(--typo-leading-label-13);
+  letter-spacing: var(--typo-tracking-label-13);
 }
 
-.typo-caption {
+/* .typo-caption is a deprecated alias for .typo-caption-12 — remove in 1.0 */
+.typo-caption-12, .typo-caption {
   font-family:    var(--typo-font);
-  font-size:      var(--typo-size-caption);
+  font-size:      var(--typo-size-caption-12);
   font-weight:    var(--typo-weight-regular);
-  line-height:    var(--typo-leading-caption);
-  letter-spacing: var(--typo-tracking-caption);
+  line-height:    var(--typo-leading-caption-12);
+  letter-spacing: var(--typo-tracking-caption-12);
 }
 
 /* ── Inline emphasis ─────────────────────────── */
-.typo-display strong,   .typo-display b,
-.typo-heading-1 strong, .typo-heading-1 b,
-.typo-heading-2 strong, .typo-heading-2 b,
-.typo-heading-3 strong, .typo-heading-3 b,
-.typo-heading-4 strong, .typo-heading-4 b,
-.typo-body-lg strong,   .typo-body-lg b,
-.typo-body strong,      .typo-body b,
-.typo-body-sm strong,   .typo-body-sm b,
-.typo-label strong,     .typo-label b,
-.typo-caption strong,   .typo-caption b {
+.typo-display-72 strong, .typo-display-72 b,
+.typo-display strong,    .typo-display b,
+.typo-heading-48 strong, .typo-heading-48 b,
+.typo-heading-36 strong, .typo-heading-36 b,
+.typo-heading-28 strong, .typo-heading-28 b,
+.typo-heading-22 strong, .typo-heading-22 b,
+.typo-heading-1 strong,  .typo-heading-1 b,
+.typo-heading-2 strong,  .typo-heading-2 b,
+.typo-heading-3 strong,  .typo-heading-3 b,
+.typo-heading-4 strong,  .typo-heading-4 b,
+.typo-body-18 strong,    .typo-body-18 b,
+.typo-body-lg strong,    .typo-body-lg b,
+.typo-body-16 strong,    .typo-body-16 b,
+.typo-body strong,       .typo-body b,
+.typo-body-14 strong,    .typo-body-14 b,
+.typo-body-sm strong,    .typo-body-sm b,
+.typo-label-13 strong,   .typo-label-13 b,
+.typo-label strong,      .typo-label b,
+.typo-caption-12 strong, .typo-caption-12 b,
+.typo-caption strong,    .typo-caption b {
   font-weight: var(--typo-weight-extrabold);
 }
 
-.typo-display em,   .typo-display i,
-.typo-heading-1 em, .typo-heading-1 i,
-.typo-heading-2 em, .typo-heading-2 i,
-.typo-heading-3 em, .typo-heading-3 i,
-.typo-heading-4 em, .typo-heading-4 i,
-.typo-body-lg em,   .typo-body-lg i,
-.typo-body em,      .typo-body i,
-.typo-body-sm em,   .typo-body-sm i,
-.typo-label em,     .typo-label i,
-.typo-caption em,   .typo-caption i {
+.typo-display-72 em, .typo-display-72 i,
+.typo-display em,    .typo-display i,
+.typo-heading-48 em, .typo-heading-48 i,
+.typo-heading-36 em, .typo-heading-36 i,
+.typo-heading-28 em, .typo-heading-28 i,
+.typo-heading-22 em, .typo-heading-22 i,
+.typo-heading-1 em,  .typo-heading-1 i,
+.typo-heading-2 em,  .typo-heading-2 i,
+.typo-heading-3 em,  .typo-heading-3 i,
+.typo-heading-4 em,  .typo-heading-4 i,
+.typo-body-18 em,    .typo-body-18 i,
+.typo-body-lg em,    .typo-body-lg i,
+.typo-body-16 em,    .typo-body-16 i,
+.typo-body em,       .typo-body i,
+.typo-body-14 em,    .typo-body-14 i,
+.typo-body-sm em,    .typo-body-sm i,
+.typo-label-13 em,   .typo-label-13 i,
+.typo-label em,      .typo-label i,
+.typo-caption-12 em, .typo-caption-12 i,
+.typo-caption em,    .typo-caption i {
   font-style: italic;
 }
