@@ -7,6 +7,19 @@ Versions follow [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.4.0] — 2026-07-03
+
+### Changed
+- All 10 named styles renamed to pixel-based names: `display`→`display-72`, `heading-1..4`→`heading-48`/`36`/`28`/`22`, `body-lg`/`body`/`body-sm`→`body-18`/`body-16`/`body-14`, `label`→`label-13`, `caption`→`caption-12` (JS keys follow the same mapping without dashes, e.g. `bodyLg`→`body18`). Rank- and qualifier-based names implied guarantees the system couldn't keep — a page's `<h1>` isn't always its visually largest heading, and `lg`/`sm` only mean something next to a sibling `body` style that may not be present.
+
+### Deprecated
+- Old CSS class names (`.typo-display`, `.typo-heading-1..4`, `.typo-body-lg`, `.typo-body`, `.typo-body-sm`, `.typo-label`, `.typo-caption`) remain as aliases pointing at the same values for this release; removed in 1.0.
+
+### Breaking
+- Old JS `typoStyles` keys (`heading1`, `bodyLg`, `body`, `label`, `caption`, etc.) were removed with no alias — a TypeScript compile error was judged safer than a silently stale CSS class. Update to the new keys per the migration table in `STYLES.md`.
+
+---
+
 ## [0.3.1] — 2026-06-13
 
 ### Added
