@@ -2,72 +2,76 @@
   font-family: var(--typo-font);
 }
 
+/* h1-h4 map to heading-48..22 as a convenience default for unclassed content —
+   not a claim that <h1> is always the page's largest heading. Use the named
+   .typo-heading-* classes directly when a page's visual hierarchy doesn't
+   start at h1. */
 .typo-prose h1 {
-  font-size:      var(--typo-size-heading-1);
+  font-size:      var(--typo-size-heading-48);
   font-weight:    var(--typo-weight-medium);
-  line-height:    var(--typo-leading-heading-1);
-  letter-spacing: var(--typo-tracking-heading-1);
+  line-height:    var(--typo-leading-heading-48);
+  letter-spacing: var(--typo-tracking-heading-48);
   text-wrap:      balance;
 }
 
 .typo-prose h2 {
-  font-size:      var(--typo-size-heading-2);
+  font-size:      var(--typo-size-heading-36);
   font-weight:    var(--typo-weight-regular);
-  line-height:    var(--typo-leading-heading-2);
-  letter-spacing: var(--typo-tracking-heading-2);
+  line-height:    var(--typo-leading-heading-36);
+  letter-spacing: var(--typo-tracking-heading-36);
   text-wrap:      balance;
 }
 
 .typo-prose h3 {
-  font-size:      var(--typo-size-heading-3);
+  font-size:      var(--typo-size-heading-28);
   font-weight:    var(--typo-weight-regular);
-  line-height:    var(--typo-leading-heading-3);
-  letter-spacing: var(--typo-tracking-heading-3);
+  line-height:    var(--typo-leading-heading-28);
+  letter-spacing: var(--typo-tracking-heading-28);
   text-wrap:      balance;
 }
 
 .typo-prose h4 {
-  font-size:      var(--typo-size-heading-4);
+  font-size:      var(--typo-size-heading-22);
   font-weight:    var(--typo-weight-regular);
-  line-height:    var(--typo-leading-heading-4);
-  letter-spacing: var(--typo-tracking-heading-4);
+  line-height:    var(--typo-leading-heading-22);
+  letter-spacing: var(--typo-tracking-heading-22);
   text-wrap:      balance;
 }
 
 .typo-prose h5 {
-  font-size:      var(--typo-size-body-lg);
+  font-size:      var(--typo-size-body-18);
   font-weight:    var(--typo-weight-regular);
-  line-height:    var(--typo-leading-body-lg);
-  letter-spacing: var(--typo-tracking-body-lg);
+  line-height:    var(--typo-leading-body-18);
+  letter-spacing: var(--typo-tracking-body-18);
 }
 
 .typo-prose h6 {
-  font-size:      var(--typo-size-body);
+  font-size:      var(--typo-size-body-16);
   font-weight:    var(--typo-weight-regular);
-  line-height:    var(--typo-leading-body);
-  letter-spacing: var(--typo-tracking-body);
+  line-height:    var(--typo-leading-body-16);
+  letter-spacing: var(--typo-tracking-body-16);
 }
 
 .typo-prose p,
 .typo-prose li {
-  font-size:      var(--typo-size-body);
+  font-size:      var(--typo-size-body-16);
   font-weight:    var(--typo-weight-regular);
-  line-height:    var(--typo-leading-body);
-  letter-spacing: var(--typo-tracking-body);
+  line-height:    var(--typo-leading-body-16);
+  letter-spacing: var(--typo-tracking-body-16);
 }
 
 .typo-prose blockquote {
-  font-size:      var(--typo-size-body-lg);
+  font-size:      var(--typo-size-body-18);
   font-weight:    var(--typo-weight-regular);
-  line-height:    var(--typo-leading-body-lg);
-  letter-spacing: var(--typo-tracking-body-lg);
+  line-height:    var(--typo-leading-body-18);
+  letter-spacing: var(--typo-tracking-body-18);
 }
 
 .typo-prose small {
-  font-size:      var(--typo-size-caption);
+  font-size:      var(--typo-size-caption-12);
   font-weight:    var(--typo-weight-regular);
-  line-height:    var(--typo-leading-caption);
-  letter-spacing: var(--typo-tracking-caption);
+  line-height:    var(--typo-leading-caption-12);
+  letter-spacing: var(--typo-tracking-caption-12);
 }
 
 .typo-prose strong,

@@ -23,9 +23,9 @@ Import the stylesheet once at your app's entry point:
 Then apply named style classes directly to elements:
 
 ```html
-<h1 class="typo-heading-1">Page Title</h1>
-<p class="typo-body">Body text goes here.</p>
-<span class="typo-label">Form label</span>
+<h1 class="typo-heading-48">Page Title</h1>
+<p class="typo-body-16">Body text goes here.</p>
+<span class="typo-label-13">Form label</span>
 ```
 
 The 10 named styles are the complete design API. If a style you need isn't in the set, that's a signal to propose a new named style — not to compose one from primitives.
@@ -54,15 +54,15 @@ The prose scope governs typography only — spacing and color remain your respon
 
 | Element | Style applied |
 |---------|--------------|
-| `h1` | heading-1 |
-| `h2` | heading-2 |
-| `h3` | heading-3 |
-| `h4` | heading-4 |
-| `h5` | body-lg |
-| `h6` | body |
-| `p`, `li` | body |
-| `blockquote` | body-lg |
-| `small` | caption |
+| `h1` | heading-48 |
+| `h2` | heading-36 |
+| `h3` | heading-28 |
+| `h4` | heading-22 |
+| `h5` | body-18 |
+| `h6` | body-16 |
+| `p`, `li` | body-16 |
+| `blockquote` | body-18 |
+| `small` | caption-12 |
 | `strong`, `b` | ExtraBold (800) within the current size |
 
 ### JS / TS
@@ -70,11 +70,11 @@ The prose scope governs typography only — spacing and color remain your respon
 ```ts
 import { typoStyles } from 'typoser';
 
-// Spread directly into a style prop
-<h1 style={typoStyles.heading1}>Title</h1>
+// Spread directly into a style prop — pick by visual scale, not HTML tag
+<h1 style={typoStyles.heading48}>Title</h1>
 
 // Or use in a CSS-in-JS block
-const Title = styled.h1`${css(typoStyles.heading1)}`;
+const Title = styled.h1`${css(typoStyles.heading48)}`;
 ```
 
 `typoStyles` contains one object per named style — the JS equivalent of the `.typo-*` classes. If you need the font family string for plumbing purposes, `fontFamily` is also exported.
@@ -92,7 +92,7 @@ input, select, button, textarea {
 }
 ```
 
-With this in place, a `<button class="typo-label">` or any input inside a `.typo-*` ancestor will pick up the correct font automatically.
+With this in place, a `<button class="typo-label-13">` or any input inside a `.typo-*` ancestor will pick up the correct font automatically.
 
 **Third-party components** — if a component renders its own DOM that you can't class directly:
 
@@ -108,19 +108,20 @@ Do not combine individual `--typo-*` variables to assemble a new style. If your 
 
 | Class | JS key | Size | Weight | Leading | Tracking |
 |---|---|---|---|---|---|
-| `.typo-display` | `display` | 72px | Light 300 | 1.056 | −0.02em |
-| `.typo-heading-1` | `heading1` | 48px | Medium 500 | 1.083 | −0.03em |
-| `.typo-heading-2` | `heading2` | 36px | Regular 400 | 1.222 | −0.01em |
-| `.typo-heading-3` | `heading3` | 28px | Regular 400 | 1.25 | 0em |
-| `.typo-heading-4` | `heading4` | 22px | Regular 400 | 1.273 | 0em |
-| `.typo-body-lg` | `bodyLg` | 18px | Regular 400 | 1.667 | 0em |
-| `.typo-body` | `body` | 16px | Regular 400 | 1.5 | +0.01em |
-| `.typo-body-sm` | `bodySm` | 14px | Regular 400 | 1.5 | +0.01em |
-| `.typo-label` | `label` | 13px | Semibold 600 | 1.385 | +0.01em |
-| `.typo-caption` | `caption` | 12px | Regular 400 | 1.5 | +0.01em |
+| `.typo-display-72` | `display72` | 72px | Light 300 | 1.056 | −0.02em |
+| `.typo-heading-48` | `heading48` | 48px | Medium 500 | 1.083 | −0.03em |
+| `.typo-heading-36` | `heading36` | 36px | Regular 400 | 1.222 | −0.01em |
+| `.typo-heading-28` | `heading28` | 28px | Regular 400 | 1.25 | 0em |
+| `.typo-heading-22` | `heading22` | 22px | Regular 400 | 1.273 | 0em |
+| `.typo-body-18` | `body18` | 18px | Regular 400 | 1.667 | 0em |
+| `.typo-body-16` | `body16` | 16px | Regular 400 | 1.5 | +0.01em |
+| `.typo-body-14` | `body14` | 14px | Regular 400 | 1.5 | +0.01em |
+| `.typo-label-13` | `label13` | 13px | Semibold 600 | 1.385 | +0.01em |
+| `.typo-caption-12` | `caption12` | 12px | Regular 400 | 1.5 | +0.01em |
 
-Three design decisions that are intentional — not mistakes:
+Four design decisions that are intentional — not mistakes:
 
+- **Every style is named by pixel size, not rank or relative qualifier.** `heading-48`/`36`/`28`/`22`, `body-18`/`16`/`14` describe a visual scale step, not an HTML heading level or a relative "lg/sm" that only makes sense next to a sibling — a page's `<h1>` won't always be `heading-48`, and a page can use `heading-48` on a non-`<h1>` element. (`display`, `heading-1`..`heading-4`, `body-lg`, `body`, `body-sm`, `label`, `caption` are deprecated aliases, removed in 1.0.)
 - **Weight progression is non-monotonic.** Hierarchy is carried mainly by size and line height. H2, H3, and H4 sit at Regular weight on purpose.
 - **Label is sentence case, not uppercase.** Semibold 600 provides the emphasis. `text-transform: uppercase` is never applied.
 - **`<strong>` and `<b>` render at ExtraBold (800).** Semibold (600) and Bold (700) were tested but not visually distinct enough against the Regular and Medium bases at screen sizes.
